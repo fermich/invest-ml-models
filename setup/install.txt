@@ -71,8 +71,15 @@ sudo dpkg -i libcudnn7_7.1.2.21-1+cuda9.0_amd64.deb libcudnn7-dev_7.1.2.21-1+cud
 pip3 install pandas
 pip3 install seaborn
 
+
 # watch gpu usage:
 watch -n 5 nvidia-smi -a --display=utilization
+
+
+# install MySQL driver:
+sudo apt-get install libmysqlclient-dev
+pip install mysqlclient
+
 
 # close env:
 deactivate
