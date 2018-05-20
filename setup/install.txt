@@ -1,0 +1,80 @@
+# install python
+apt-get install python3
+apt-get install python3-dev
+apt-get install virtualenv
+
+
+# setup virtual env
+virtualenv -p /usr/bin/python3 ml-tools
+source ml-tools/bin/activate
+
+
+# Tensorflow with GPU support:
+(ml-tools) $ pip3 install tensorflow-gpu
+# Tensorflow without GPU support:
+(ml-tools) $ pip3 install tensorflow
+
+
+# BLAS to run fast tensor operations on CPU:
+sudo apt-get install build-essential cmake unzip pkg-config libopenblas-dev liblapack-dev
+
+
+# Python scientific suite:
+(ml-tools) $ pip3 install numpy
+(ml-tools) $ pip3 install scipy
+(ml-tools) $ pip3 install matplotlib
+sudo apt-get install python-yaml
+
+
+# HDF5 to store large numeric data in efficient binary format: 
+sudo apt-get install libhdf5-serial-dev
+(ml-tools) $ pip3 install h5py
+
+
+# Graphviz and pydot-ng to visualize Keras models:
+sudo apt-get install graphviz
+(ml-tools) $ pip3 install pydot-ng
+
+
+# computer vision and machine learning library:
+sudo apt-get install python-opencv
+
+
+# install CUDA 9.0:
+wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/cuda-repo-ubuntu1704_9.0.176-1_amd64.deb
+dpkg -i 
+apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/7fa2af80.pub
+apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
+apt-get update
+apt-get install cuda-runtime-9-0
+
+
+# install cuDNN for CUDA 9.0 (GPU-accelerated library of primitives for dl):
+wget https://developer.nvidia.com/cudnn/XXX
+sudo dpkg -i libcudnn7_7.1.2.21-1+cuda9.0_amd64.deb libcudnn7-dev_7.1.2.21-1+cuda9.0_amd64.deb
+
+
+# install Theano (optional)
+(ml-tools) $ pip3 install theano
+
+
+# install Keras:
+(ml-tools) $ pip3 install keras
+
+
+# jupyter:
+(ml-tools) $ pip3 install jupyter
+(ml-tools) $ jupyter notebook
+
+
+# optional:
+pip3 install pandas
+pip3 install seaborn
+
+# watch gpu usage:
+watch -n 5 nvidia-smi -a --display=utilization
+
+# close env:
+deactivate
+
+
